@@ -3,7 +3,8 @@ from datetime import datetime
 
 #local imports
 from config import app_config 
-from app.models.questions import QuestionsOp 
+from app.models.questions import QuestionsOp
+from app.common.validators import validate_question 
 
 question = QuestionsOp('title', 'description', 'body')
 
@@ -21,7 +22,7 @@ def create_app(config_name):
         body = data['body']
         timeposted = question.timeposted
         question.post_new_question(qsn_id, title, description, body, timeposted)
-        question_validator = validate_question(data)
+        question_validator = validate_question(data) 
 
         if(question_validator != True):
             return question_validator 
