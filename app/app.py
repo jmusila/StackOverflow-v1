@@ -34,6 +34,9 @@ def create_app(config_name):
 
     @app.route("/questions/<int:qsn_id>", methods=['GET'])
     def get_single_question(qsn_id):
+        i = question.get_one_question(qsn_id)
+        if i:
+            return jsonify({"Status": "Ok", "Question": i}), 200
         pass
 
     return app 
