@@ -5,9 +5,10 @@ from datetime import datetime
 from config import app_config
 from app.models.answers import AnswerOp
 from app.models.questions import QuestionsOp
-from app.common.validators import validate_question 
+from app.common.validators import validate_question, validate_answer 
 
 question = QuestionsOp('title', 'description', 'body')
+answer = AnswerOp('ans_body')
 
 def create_app(config_name):
  
