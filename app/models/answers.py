@@ -5,4 +5,12 @@ class AnswerOp():
         self.ans_body = ans_body
         self.timeposted = datetime.now()
         self.Answers = []
-        pass
+
+    def post_new_answer(self, ans_id, ans_body, timeposted):
+        new_answer = { 
+            "ans_id": ans_id,
+            "ans_body": ans_body, 
+            "timeposted": timeposted
+        }
+
+        self.Answers.append(new_answer)
