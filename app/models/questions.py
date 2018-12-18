@@ -19,3 +19,6 @@ class QuestionsOp():
         }
 
         self.Questions.append(new_qsn)
+
+    def get_one_question(self, qsn_id):
+        pass
