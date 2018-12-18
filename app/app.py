@@ -15,7 +15,7 @@ def create_app(config_name):
     
     @app.route("/questions", methods=['GET'])
     def all_questions():
-        pass
+        return jsonify({"Questions": question.Questions})
 
     @app.route("/questions", methods=['POST'])
     def add_question():
