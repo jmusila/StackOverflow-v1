@@ -64,6 +64,5 @@ def create_app(config_name):
                 return answer_validator 
             return jsonify({'Message': "The Answer was added successfully", "Status": "Ok", }), 201
         return jsonify({"Message": "Question with that id not found"}), 404
-        pass
 
     return app 
