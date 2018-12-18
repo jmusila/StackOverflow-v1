@@ -32,4 +32,8 @@ def create_app(config_name):
             return question_validator 
         return jsonify({"Message": "Question posted successfully"}), 201
 
+    @app.route("/questions/<int:qsn_id>", methods=['GET'])
+    def get_single_question(qsn_id):
+        pass
+
     return app 
