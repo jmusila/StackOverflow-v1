@@ -24,4 +24,3 @@ class QuestionsOp():
         for i in self.Questions:
             if i['qsn_id'] == qsn_id:
                 return i
-        pass
