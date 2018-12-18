@@ -41,6 +41,10 @@ def create_app(config_name):
 
     @app.route("/questions/<int:qsn_id>", methods=['DELETE'])
     def delete_question(qsn_id):
+        k = question.get_one_question(qsn_id)
+        if k:
+            question.Questions.remove(k)
+            return jsonify({"Message": "Question Deleted Successfully"})
         pass
 
     return app 
