@@ -44,7 +44,7 @@ def create_app(config_name):
         k = question.get_one_question(qsn_id)
         if k:
             question.Questions.remove(k)
-            return jsonify({"Message": "Question Deleted Successfully"})
+            return jsonify({"Message": "Question Deleted Successfully"}), 200
         pass
 
     return app 
