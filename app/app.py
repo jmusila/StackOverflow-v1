@@ -51,6 +51,19 @@ def create_app(config_name):
 
     @app.route("/questions/<int:qsn_id>/answers", methods=['POST'])
     def post_answer(qsn_id):
+        i = question.get_one_question(qsn_id)
+        if i:
+            data = request.get_json()
+            ans_id = len(answer.Answers) + 1
+            ans_body = data['ans_body']
+            timeposted = answer.timeposted
+            answer.post_new_answer(ans_id, ans_body, timeposted) 
+            answer_validator = validate_answer(data)
+
+            if(answer_validator != True):
+                return answer_validator 
+            return jsonify({'Message': "The Answer was added successfully", "Status": "Ok", }), 201
+        return jsonify({"Message": "Question with that id not found"}), 404
         pass
 
     return app 
