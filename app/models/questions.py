@@ -21,4 +21,7 @@ class QuestionsOp():
         self.Questions.append(new_qsn)
 
     def get_one_question(self, qsn_id):
+        for i in self.Questions:
+            if i['qsn_id'] == qsn_id:
+                return i
         pass
