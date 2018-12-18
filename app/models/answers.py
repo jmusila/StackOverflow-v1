@@ -14,3 +14,8 @@ class AnswerOp():
         }
 
         self.Answers.append(new_answer)
+
+    def get_one_ans(self, ans_id):
+        for i in self.Answers:
+            if i['ans_id'] == ans_id:
+                return i
