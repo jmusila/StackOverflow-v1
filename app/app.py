@@ -82,4 +82,8 @@ def create_app(config_name):
                 return jsonify({"Message" : "Answer with that id not found", "Status" : "Error"}), 404 
             return jsonify({"Message" : "Question with that id not found", "Status" : "Error"}), 404 
 
+    @app.route("/questions/<int:qsn_id>/answers/<int:ans_id>", methods=['DELETE'])
+    def delete_answer(qsn_id, ans_id):
+        pass
+
     return app 
