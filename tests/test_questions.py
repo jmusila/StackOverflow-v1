@@ -101,3 +101,7 @@ class TestQuestions(unittest.TestCase):
         # Test to see if it exists, should return a 404
         result = self.client.get('/questions/1')
         self.assertEqual(result.status_code, 404)
+
+    def tearDown(self):
+        del question.Questions[:]
+        pass
