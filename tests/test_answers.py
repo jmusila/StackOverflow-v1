@@ -47,3 +47,16 @@ class TestAnswers(unittest.TestCase):
         response_msg = json.loads(response.data.decode("UTF-8"))
         self.assertEqual("Question with that id not found",
                       response_msg["Message"])
+
+    def test_user_can_fetch_all_answers(self):
+        """
+        Tests user can get all answers he/she has given.
+        """
+        response = self.client.post("/questions",
+                                    data=json.dumps(self.question),
+                                    content_type="application/json")
+        response = self.client.get("/questions/1/answers",
+                                data=json.dumps(self.answer),
+                                content_type="application/json")
+        self.assertEqual(response.status_code, 200)
+        res = json.loads(response.data.decode("UTF-8"))
