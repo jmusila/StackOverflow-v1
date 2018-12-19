@@ -22,3 +22,24 @@ StackOverflow-lite is a platform in which users can as questions and get answers
 
 * Navigate to the cloned repo.
 
+### Prerequisites
+
+```
+1. Python3
+2. Flask
+3. Postman
+```
+
+## Installation 
+After navigating to the cloned repo;
+
+Create a virtualenv and activate it ::
+
+    create a directory 
+    cd into the directory
+    virtualenv -p python3 venv
+    source venv/bin activate
+
+Install the dependencies::
+
+    pip install -r requirements.txt 
