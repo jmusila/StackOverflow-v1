@@ -87,3 +87,17 @@ class TestQuestions(unittest.TestCase):
         self.assertEqual(response.status_code, 201)
         response_msg = json.loads(response.data.decode("UTF-8"))
         self.assertEqual("Question posted successfully", response_msg["Message"])
+
+    def test_delete_question(self):
+        """
+        Test user can delete their questions. (DELETE request).
+
+        """
+        response = self.client.post(
+            '/questions', content_type='application/json', data=json.dumps(self.question))
+        self.assertEqual(response.status_code, 201)
+        res = self.client.delete('/questions/1', content_type='application/json')
+        self.assertEqual(res.status_code, 204)
+        # Test to see if it exists, should return a 404
+        result = self.client.get('/questions/1')
+        self.assertEqual(result.status_code, 404)
