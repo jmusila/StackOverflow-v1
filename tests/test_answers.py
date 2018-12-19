@@ -11,3 +11,13 @@ class TestAnswers(unittest.TestCase):
     def setUp(self):
         self.app = create_app(config_name="testing")
         self.client = self.app.test_client()
+
+        self.question ={
+            "title": "Computer Science",
+            "description": "This is the description",
+            "body": "I am the question body"
+        }
+
+        self.answer = {
+            "ans_body": "This is the question body"
+        }
