@@ -46,7 +46,7 @@ def create_app(config_name):
         k = question.get_one_question(qsn_id)
         if k:
             question.Questions.remove(k)
-            return jsonify({"Message": "Question Deleted Successfully"}), 200
+            return jsonify({"Message": "Question Deleted Successfully"}), 204
         return jsonify({"Message" : "Question with that question_id not found", "Status" : "Error"}), 404
 
     @app.route("/questions/<int:qsn_id>/answers", methods=['GET'])
