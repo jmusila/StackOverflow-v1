@@ -77,6 +77,10 @@ def create_app(config_name):
         for i in question.Questions:
             if i['qsn_id'] == qsn_id:
                 j = answer.get_one_ans(ans_id)
+                if j:
+                    return jsonify({"Status": "Ok", "Answer": j}), 200
+                return jsonify({"Message" : "Answer with that id not found", "Status" : "Error"}), 404 
+            return jsonify({"Message" : "Question with that id not found", "Status" : "Error"}), 404 
         pass
 
     return app 
