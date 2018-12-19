@@ -49,3 +49,22 @@ class TestQuestions(unittest.TestCase):
                                 content_type="application/json")
         self.assertEqual(response.status_code, 200)
         res = json.loads(response.data.decode("UTF-8"))
+
+    def test_user_can_get_one_question_by_id(self):
+        """
+        Tests a user can get a question by id.
+        """
+
+        response = self.client.post("/questions",
+                                 data=json.dumps(dict(
+                                 title="test-title",
+                                 description="test-descriptiont",
+                                 body="test-body")),
+                                 content_type="application/json")
+
+        response = self.client.get("/questions/1",
+                                 data=json.dumps(dict(qsn_id=1)),
+                                 content_type="application/json")
+        self.assertEqual(response.status_code, 200)
+        response_msg = json.loads(response.data.decode("UTF-8"))
+        self.assertIn("Ok", response_msg["Status"])
