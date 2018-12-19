@@ -4,3 +4,12 @@
 ## Summary
 
 StackOverflow-lite is a platform in which users can as questions and get answers. 
+
+## NOTE
+* The project is managed using PivotalTracker board [click here](https://www.pivotaltracker.com/n/projects/2202775)
+
+* THe documentation is not yet created
+
+* The app is not yet hosted on heroku
+
+* Some of the app's adge cases are not yet catched
