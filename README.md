@@ -98,4 +98,4 @@ Test the following endpoints:
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 #### Contribution
-Fork the repo, create a PR to this repository's develop.
+Fork the repo, create a PR to this repository's develop branch.
