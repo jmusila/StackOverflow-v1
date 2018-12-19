@@ -87,4 +87,15 @@ Test the following endpoints:
 | GET     /questions/answers          | Gets all answers as a list              |
 | GET     /questions/id/answers/id    | Gets a single answer by id              |
 | DELETE  /questions/id/answers/id    | Deletes a single answer using its id    |
-|                                                                          |
+|                                                                               |
+
+## Authors
+
+* **Jonathan Musila** - *Initial work* - [jonathanmusila](https://github.com/jonathanmusila)
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+#### Contribution
+Fork the repo, create a PR to this repository's develop.
