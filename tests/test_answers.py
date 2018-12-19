@@ -35,3 +35,15 @@ class TestAnswers(unittest.TestCase):
         self.assertEqual(response.status_code, 201)
         response_msg = json.loads(response.data.decode("UTF-8"))
         self.assertEqual("The Answer was added successfully", response_msg["Message"])
+
+    def test_post_answer_with_invalid_question_id(self):
+        """
+        Tests user cannnot answer a question without body 
+        """
+        response = self.client.post("/questions/1/answers",
+                                 data=json.dumps(self.answer),
+                                 content_type="application/json")
+        self.assertEqual(response.status_code, 404)
+        response_msg = json.loads(response.data.decode("UTF-8"))
+        self.assertEqual("Question with that id not found",
+                      response_msg["Message"])
