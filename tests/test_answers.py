@@ -60,3 +60,20 @@ class TestAnswers(unittest.TestCase):
                                 content_type="application/json")
         self.assertEqual(response.status_code, 200)
         res = json.loads(response.data.decode("UTF-8"))
+
+    def test_post_answer_with_qsn_id_that_does_not_exist(self):
+        """
+        Tests user cannnot answer a question that does not exist
+        """
+        response = self.client.post("/questions",
+                                    data=json.dumps(self.question),
+                                    content_type="application/json")
+
+        response = self.client.post("/questions/5/answers",
+                                 data=json.dumps(dict(qsn_id="5",
+                                                      ans_body="wertghdfggdggdg")),
+                                 content_type="application/json")
+        self.assertEqual(response.status_code, 404)
+        response_msg = json.loads(response.data.decode("UTF-8"))
+        self.assertEqual("Question with that id not found",
+                      response_msg["Message"])
