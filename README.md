@@ -13,3 +13,12 @@ StackOverflow-lite is a platform in which users can as questions and get answers
 * The app is not yet hosted on heroku
 
 * Some of the app's adge cases are not yet catched
+
+## Getting Started 
+
+* Clone the repository: 
+
+    ```https://github.com/jonathanmusila/StackOverflow-v1.git```
+
+* Navigate to the cloned repo.
+
