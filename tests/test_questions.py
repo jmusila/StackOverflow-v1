@@ -39,3 +39,13 @@ class TestQuestions(unittest.TestCase):
         response_msg = json.loads(response.data.decode("UTF-8"))
         self.assertIn("Question body is required",
                       response_msg["Message"])
+
+    def test_user_can_fetch_all_questions(self):
+        """
+        Tests user can get all questions he/she has asked.
+        """
+        response = self.client.get("/questions",
+                                data=json.dumps(dict()),
+                                content_type="application/json")
+        self.assertEqual(response.status_code, 200)
+        res = json.loads(response.data.decode("UTF-8"))
