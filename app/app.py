@@ -51,6 +51,9 @@ def create_app(config_name):
 
     @app.route("/questions/<int:qsn_id>/answers", methods=['GET'])
     def all_answers(qsn_id):
+        for j in question.Questions:
+            if j['qsn_id'] == qsn_id:
+                return jsonify({"Answers": answer.Answers}), 200
         pass
 
     @app.route("/questions/<int:qsn_id>/answers", methods=['POST'])
