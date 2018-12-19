@@ -77,3 +77,21 @@ class TestAnswers(unittest.TestCase):
         response_msg = json.loads(response.data.decode("UTF-8"))
         self.assertEqual("Question with that id not found",
                       response_msg["Message"])
+
+    def test_delete_answer(self):
+        """
+        Test user can delete their answers. (DELETE request).
+
+        """
+        response = self.client.post("/questions",
+                                    data=json.dumps(self.question),
+                                    content_type="application/json")
+        self.assertEqual(response.status_code, 201)
+        response = self.client.post(
+            "questions/1/answers", content_type='application/json', data=json.dumps(self.answer))
+        self.assertEqual(response.status_code, 201)
+        res = self.client.delete("questions/1/answers/1", content_type='application/json')
+        self.assertEqual(res.status_code, 204)
+        # Test to see if it exists, should return a 404
+        result = self.client.get("questions/1/answers/1")
+        self.assertEqual(result.status_code, 404)
