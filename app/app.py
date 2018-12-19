@@ -72,4 +72,8 @@ def create_app(config_name):
             return jsonify({'Message': "The Answer was added successfully", "Status": "Ok", }), 201
         return jsonify({"Message": "Question with that id not found"}), 404
 
+    @app.route("/questions/<int:qsn_id>/answers/<int:ans_id>", methods=['GET'])
+    def get_single_answer(qsn_id, ans_id):
+        pass
+
     return app 
