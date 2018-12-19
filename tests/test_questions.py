@@ -17,3 +17,12 @@ class TestQuestions(unittest.TestCase):
             "description": "This is the description",
             "body": "I am the question body"
         }
+
+    def test_question_empty_title(self):
+        response = self.client.post("/questions", data=json.dumps(dict(title="",
+        description="Thisid the", body="hgfdhg")),
+                                 content_type="application/json")
+        self.assertEqual(response.status_code, 401)
+        response_msg = json.loads(response.data.decode("UTF-8"))
+        self.assertIn("Question title is required",
+                      response_msg["Message"])
