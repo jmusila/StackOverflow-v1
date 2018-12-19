@@ -68,3 +68,11 @@ class TestQuestions(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         response_msg = json.loads(response.data.decode("UTF-8"))
         self.assertIn("Ok", response_msg["Status"])
+
+    def test_user_can_not_get_question_by_id_that_does_not_exist(self):
+        response = self.client.get("questions/5",
+                                 data=json.dumps(dict(qsn_id=5)),
+                                 content_type="application/json")
+        self.assertEqual(response.status_code, 404)
+        response_msg = json.loads(response.data.decode("UTF-8"))
+        self.assertIn("Error", response_msg["Status"])
