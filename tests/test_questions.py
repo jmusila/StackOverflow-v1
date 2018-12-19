@@ -26,3 +26,16 @@ class TestQuestions(unittest.TestCase):
         response_msg = json.loads(response.data.decode("UTF-8"))
         self.assertIn("Question title is required",
                       response_msg["Message"])
+
+    def test_post_question_empty_body(self):
+        """
+        Tests user cannnot add a question without body
+        """
+        response = self.client.post("/questions",
+                                 data=json.dumps(dict(title="This is my title",
+                                                      description="Desrcption", body="")),
+                                 content_type="application/json")
+        self.assertEqual(response.status_code, 401)
+        response_msg = json.loads(response.data.decode("UTF-8"))
+        self.assertIn("Question body is required",
+                      response_msg["Message"])
