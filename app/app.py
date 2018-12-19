@@ -55,7 +55,6 @@ def create_app(config_name):
             if j['qsn_id'] == qsn_id:
                 return jsonify({"Answers": answer.Answers}), 200
             return jsonify({"Message" : "Question with that question_id not found", "Status" : "Error"}), 404
-        pass
 
     @app.route("/questions/<int:qsn_id>/answers", methods=['POST'])
     def post_answer(qsn_id):
