@@ -99,4 +99,3 @@ class TestAnswers(unittest.TestCase):
     def tearDown(self):
         del question.Questions[:]
         del answer.Answers[:]
-        pass
