@@ -92,6 +92,5 @@ def create_app(config_name):
                     return jsonify({"Status": "Ok", "Message": "Answer deleted successfully"}), 204
                 return jsonify({"Message" : "Answer with that id not found", "Status" : "Error"}), 404 
             return jsonify({"Message" : "Question with that id not found", "Status" : "Error"}), 404
-        pass
 
     return app 
