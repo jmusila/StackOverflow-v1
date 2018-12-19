@@ -76,3 +76,14 @@ class TestQuestions(unittest.TestCase):
         self.assertEqual(response.status_code, 404)
         response_msg = json.loads(response.data.decode("UTF-8"))
         self.assertIn("Error", response_msg["Status"])
+
+    def test_user_can_post_question(self):
+        """
+        Tests a user can post a question.
+        """
+        response = self.client.post("/questions",
+                                 data=json.dumps(self.question),
+                                 content_type="application/json")
+        self.assertEqual(response.status_code, 201)
+        response_msg = json.loads(response.data.decode("UTF-8"))
+        self.assertEqual("Question posted successfully", response_msg["Message"])
