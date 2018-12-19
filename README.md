@@ -65,3 +65,26 @@ Fire up postman and start the development server by:
   ```
   $ flask run
   ```
+
+Test the following endpoints:
+
+### Questions endpoints
+
+| EndPoint                       | Functionality                           |
+| -------------------------------|:---------------------------------------:|
+| POST     /questions            | Posts new question                      |
+| GET     /questions             | Gets all questions as a list            |
+| GET     /questions/id          | Gets a single question by id            |
+| DELETE  /questions/id          | Deletes a single question using its id  |
+|                                                                          |
+
+
+### Answers endpoints
+
+| EndPoint                            | Functionality                           |
+| ------------------------------------|:---------------------------------------:|
+| POST     /questions/answers         | Posts new answer                        |
+| GET     /questions/answers          | Gets all answers as a list              |
+| GET     /questions/id/answers/id    | Gets a single answer by id              |
+| DELETE  /questions/id/answers/id    | Deletes a single answer using its id    |
+|                                                                          |
