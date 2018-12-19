@@ -74,6 +74,9 @@ def create_app(config_name):
 
     @app.route("/questions/<int:qsn_id>/answers/<int:ans_id>", methods=['GET'])
     def get_single_answer(qsn_id, ans_id):
+        for i in question.Questions:
+            if i['qsn_id'] == qsn_id:
+                j = answer.get_one_ans(ans_id)
         pass
 
     return app 
